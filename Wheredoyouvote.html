@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta charset="utf-8">
+<title>あなたはどこに投票する？</title>
+
+<style>
+	body {
+		background-color: cyan;
+	}
+	
+	h1 {
+	text-align: center;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		color: white;
+		font-size: 1.5em;
+	}
+	
+	#emoji {
+		text-align: center;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 80px;
+	}
+	
+	#button {
+		display: block;
+		width: 200px;
+		height: 80px;
+		color: white;
+		border: 1px solid red;
+		background-color: green;
+		border-radius: 10px;
+		margin-top: 40px;
+		margin-left: auto;
+		margin-right: auto;
+		text-decoration: none;
+		text-align: center;
+		line-height: 80px;
+	}
+	
+	#button:hover {
+		transition: 0.1s;
+		opacity: 0.6;
+		color: red;
+		cursor: pointer;
+	}
+	
+	#result {
+		margin-top: 40px;
+		margin-right: auto;
+		margin-left: auto;
+		font-size: 35px;
+		line-height: 80px;
+		color: red;
+		text-align: center;
+	}
+	
+	#result_comment {
+		text-align: center;
+		margin-top: 20px;
+		margin-right: auto;
+		margin-left: auto;
+		font-size: 20px;
+	}
+</style>
+</head>
+
+<body>
+<h1>あなたはどこに投票する？</h1>
+<p id="emoji">&#x1f914;</p>
+<a id="button">決める</a>
+<p id="result"></p>
+<p id="result_comment">あなたはこの政党に投票しよう！</p>
+
+<script>
+	const list = ["日本共産党", "れいわ新選組", "NHKから国民を守る党", "サキュバス党", "自由民主党", "立憲民主党", "日本維新の会", "公明党", "幸福実現党", "オリーブの木", "労働の解放をめざす労働者党", "安楽死制度を考える会", "社会民主党"];
+	const comment = ["市民と野党の共闘の勝利、日本共産党の躍進で、<br>希望と安心の政治を", "れいわ新選組は、<br>ロスジェネを含む、<br>全ての人々の暮らしを底上げします！", "NHKをぶっ壊す！", "性欲に手厚い支援を！", "世界の真ん中で、力強い日本外交", "新しい政治は、あなたから始まる。", "身を切る改革、実行中。", "小さな声を、聴く力。", "愛してるから、守りたい。", "今、立ち上がる。", "労働者の代表を国会へ！", "日本にも安楽死制度を！", "支えあう社会目指す"];
+	
+	const button = document.getElementById("button");
+	const result = document.getElementById("result");
+	const result_comment = document.getElementById("result_comment");
+	result_comment.style.display = "none";
+	button.onclick = function() {
+		let num = Math.floor(Math.random() * list.length);
+		result.innerHTML = list[num] + "<br>" + comment[num];
+		result_comment.style.display = "block";
+	};
+</script>
+</body>
+</html>
